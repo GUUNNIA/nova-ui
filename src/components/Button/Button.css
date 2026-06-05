@@ -1,0 +1,63 @@
+.nova-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--nova-space-2);
+  font-family: var(--nova-font-body);
+  font-weight: var(--nova-weight-medium);
+  border: 1px solid transparent;
+  border-radius: var(--nova-radius-md);
+  cursor: pointer;
+  transition: background var(--nova-transition), border-color var(--nova-transition),
+    color var(--nova-transition);
+}
+
+.nova-button:focus-visible {
+  outline: 2px solid var(--nova-color-primary);
+  outline-offset: 2px;
+}
+
+.nova-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.nova-button--sm {
+  font-size: var(--nova-text-sm);
+  padding: var(--nova-space-1) var(--nova-space-3);
+}
+.nova-button--md {
+  font-size: var(--nova-text-md);
+  padding: var(--nova-space-2) var(--nova-space-4);
+}
+.nova-button--lg {
+  font-size: var(--nova-text-lg);
+  padding: var(--nova-space-3) var(--nova-space-5);
+}
+
+/* Variants */
+.nova-button--primary {
+  background: var(--nova-color-primary);
+  color: var(--nova-color-on-primary);
+}
+.nova-button--primary:hover:not(:disabled) {
+  background: var(--nova-color-primary-hover);
+}
+
+.nova-button--secondary {
+  background: var(--nova-color-surface);
+  color: var(--nova-color-text);
+  border-color: var(--nova-color-border);
+}
+.nova-button--secondary:hover:not(:disabled) {
+  border-color: var(--nova-color-text-muted);
+}
+
+.nova-button--ghost {
+  background: transparent;
+  color: var(--nova-color-primary);
+}
+.nova-button--ghost:hover:not(:disabled) {
+  background: var(--nova-accent-100);
+}

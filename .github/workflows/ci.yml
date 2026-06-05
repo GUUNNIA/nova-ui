@@ -1,0 +1,33 @@
+name: CI
+
+# PR이 열리거나 main에 푸시될 때마다 코드를 검증합니다.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Build library
+        run: npm run build
+
+      - name: Build Storybook (sanity check)
+        run: npm run build-storybook

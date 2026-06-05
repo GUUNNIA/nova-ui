@@ -1,0 +1,31 @@
+.nova-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--nova-font-body);
+  font-size: var(--nova-text-sm);
+  font-weight: var(--nova-weight-medium);
+  line-height: var(--nova-leading-tight);
+  padding: var(--nova-space-1) var(--nova-space-3);
+  border-radius: var(--nova-radius-pill);
+}
+
+.nova-badge--neutral {
+  background: var(--nova-ink-100);
+  color: var(--nova-ink-700);
+}
+.nova-badge--primary {
+  background: var(--nova-accent-100);
+  color: var(--nova-accent-600);
+}
+.nova-badge--success {
+  background: var(--nova-success-100);
+  color: var(--nova-success-500);
+}
+.nova-badge--danger {
+  background: var(--nova-danger-100);
+  color: var(--nova-danger-500);
+}
+.nova-badge--info {
+  background: var(--nova-info-100);
+  color: var(--nova-info-500);
+}

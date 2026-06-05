@@ -1,0 +1,40 @@
+name: Release
+
+# main에 변경이 들어올 때마다 실행됩니다.
+# - 대기 중인 changeset이 있으면 → 버전을 올리는 "Version Packages" PR을 자동 생성/갱신
+# - 그 PR이 머지되면 → npm에 게시 + git 태그 + GitHub Release 생성
+# 사전 준비: 저장소 Secrets에 NPM_TOKEN(Automation 토큰) 등록.
+on:
+  push:
+    branches: [main]
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write # npm provenance용
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+          cache: npm
+
+      - run: npm ci
+
+      - name: Create Release PR or publish to npm
+        uses: changesets/action@v1
+        with:
+          version: npm run version   # changeset version (버전 + CHANGELOG 갱신)
+          publish: npm run release    # build + changeset publish
+          commit: "chore: release design system"
+          title: "chore: release design system"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

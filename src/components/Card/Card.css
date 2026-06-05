@@ -1,0 +1,32 @@
+.nova-card {
+  background: var(--nova-color-surface);
+  border: 1px solid var(--nova-color-border);
+  border-radius: var(--nova-radius-lg);
+  padding: var(--nova-space-5);
+  color: var(--nova-color-text);
+  box-shadow: var(--nova-shadow-sm);
+}
+
+.nova-card--elevated {
+  box-shadow: var(--nova-shadow-md);
+  border-color: transparent;
+}
+
+.nova-card__header {
+  margin-bottom: var(--nova-space-3);
+}
+
+.nova-card__title {
+  margin: 0;
+  font-family: var(--nova-font-display);
+  font-size: var(--nova-text-lg);
+  font-weight: var(--nova-weight-bold);
+  line-height: var(--nova-leading-tight);
+}
+
+.nova-card__body {
+  font-family: var(--nova-font-body);
+  font-size: var(--nova-text-md);
+  line-height: var(--nova-leading-normal);
+  color: var(--nova-color-text-muted);
+}

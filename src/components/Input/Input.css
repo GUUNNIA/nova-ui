@@ -1,0 +1,49 @@
+.nova-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nova-space-2);
+  font-family: var(--nova-font-body);
+}
+
+.nova-field__label {
+  font-size: var(--nova-text-sm);
+  font-weight: var(--nova-weight-medium);
+  color: var(--nova-color-text);
+}
+
+.nova-input {
+  font-family: inherit;
+  font-size: var(--nova-text-md);
+  color: var(--nova-color-text);
+  background: var(--nova-color-surface);
+  border: 1px solid var(--nova-color-border);
+  border-radius: var(--nova-radius-md);
+  padding: var(--nova-space-2) var(--nova-space-3);
+  transition: border-color var(--nova-transition), box-shadow var(--nova-transition);
+}
+
+.nova-input::placeholder {
+  color: var(--nova-color-text-muted);
+}
+
+.nova-input:focus-visible {
+  outline: none;
+  border-color: var(--nova-color-primary);
+  box-shadow: 0 0 0 3px var(--nova-accent-100);
+}
+
+.nova-input--invalid {
+  border-color: var(--nova-danger-500);
+}
+.nova-input--invalid:focus-visible {
+  box-shadow: 0 0 0 3px var(--nova-danger-100);
+}
+
+.nova-field__hint {
+  margin: 0;
+  font-size: var(--nova-text-sm);
+  color: var(--nova-color-text-muted);
+}
+.nova-field__hint--error {
+  color: var(--nova-danger-500);
+}
